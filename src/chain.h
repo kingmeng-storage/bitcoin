@@ -5,7 +5,7 @@
 
 #ifndef BITCOIN_CHAIN_H
 #define BITCOIN_CHAIN_H
-
+#include <chainparams.h>
 #include <arith_uint256.h>
 #include <primitives/block.h>
 #include <pow.h>
@@ -297,7 +297,7 @@ public:
     uint256 GetBlockPoWHash(bool isBCDBlock = false) const
     {
     	if ((nVersion & 0x40000000UL) && isBCDBlock)
-    		return GetBlockHeader().GetPoWHash();
+    		return GetBlockHeader().GetPoWHash(isBCDBlock);
     	else
     		return *phashBlock;
     }
@@ -334,7 +334,7 @@ public:
             pprev, nHeight,
             hashMerkleRoot.ToString(),
             GetBlockHash().ToString(),
-            GetBlockPoWHash().ToString());
+            GetBlockPoWHash(nHeight >= Params().GetConsensus().BCDHeight).ToString());
     }
 
     //! Check whether this block index entry is valid up to the passed validity level.

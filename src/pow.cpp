@@ -18,13 +18,13 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     unsigned int nProofOfWorkLimit = UintToArith256(params.powLimit).GetCompact();
 
     // Genesis block
-    if (pindexLast == NULL)
+    if (pindexLast == nullptr)
         return nProofOfWorkLimit;
     if (pindexLast->nHeight+1 == params.BCDHeight)
     	return nProofOfWorkLimit;
 
     if (pindexLast->nHeight+1 == params.BCDHeight+1)
-    	return UintToArith256(uint256S("0000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffff")).GetCompact();;
+    	return UintToArith256(params.BCDBeginPowLimit).GetCompact();
 
     int height, interval;
     if (pindexLast->nHeight+1 > params.BCDHeight) {

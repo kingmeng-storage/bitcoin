@@ -82,6 +82,13 @@ public:
         consensus.BIP65Height = 388381; // 000000000000000004c2b624ed5d7756c508d90fd0da2c7c679febfa6c4735f0
         consensus.BIP66Height = 363725; // 00000000000000000379eaa19dce8c9b722d46ae6a57c2f1a988119488b50931
         consensus.BCDHeight = 495867;
+
+
+        consensus.BCDGenesisBlockReward = 1400 * 10000 * COIN;
+        consensus.BCDLastRewardHeight = 826002;
+        consensus.BCDBeginPowLimit = uint256S("0000000000ffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+
+
         consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 10 * 60;
@@ -104,10 +111,10 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1510704000; // November 15th, 2017.
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000003f94d1ad391682fe038bf5");
+        consensus.nMinimumChainWork = uint256S("0x000000000000000000000000000000000000000000b80c8340e5aa3724eab1ea");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x00000000000000000013176bf8d7dfeab4e1db31dc93bc311b436e82ab226b90"); //453354
+        consensus.defaultAssumeValid = uint256S("0xeb52d337f6bb597d888fff2173a955895eb6ac49b7368e7046eddf2da4e7ffa3"); //453354
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -131,12 +138,12 @@ public:
         // This is fine at runtime as we'll fall back to using them as a oneshot if they dont support the
         // service bits we want, but we should get them updated to support all service bits wanted by any
         // release ASAP to avoid it where possible.
-        vSeeds.emplace_back("seed1.dns.btcd.io"); // Pieter Wuille, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed2.dns.btcd.io"); // Matt Corallo, only supports x9
-        vSeeds.emplace_back("seed3.dns.btcd.io"); // Luke Dashjr
-        vSeeds.emplace_back("seed4.dns.btcd.io"); // Christian Decker, supports x1 - xf
-        vSeeds.emplace_back("seed5.dns.btcd.io"); // Jonas Schnelli, only supports x1, x5, x9, and xd
-        vSeeds.emplace_back("seed6.dns.btcd.io"); // Peter Todd, only supports x1, x5, x9, and xd
+        vSeeds.emplace_back("seed1.dns.btcd.io");  
+        vSeeds.emplace_back("seed2.dns.btcd.io");  
+        vSeeds.emplace_back("seed3.dns.btcd.io");  
+        vSeeds.emplace_back("seed4.dns.btcd.io");  
+        vSeeds.emplace_back("seed5.dns.btcd.io");  
+        vSeeds.emplace_back("seed6.dns.btcd.io");  
 
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,0);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,5);
@@ -171,11 +178,11 @@ public:
         };
 
         chainTxData = ChainTxData{
-            // Data as of block 0000000000000000002d6cca6761c99b3c2e936f9a0e304b7c7651a993f461de (height 506081).
-            1516903077, // * UNIX timestamp of last known number of transactions
-            295363220,  // * total number of transactions between genesis and that timestamp
+            // Data as of block c4c660f253e9ec2f83f3a374c93cda44f2c29ac269131e8160820ff1dccea15a (height 527594).
+            1532938045, // * UNIX timestamp of last known number of transactions
+            274435369,  // * total number of transactions between genesis and that timestamp
                         //   (the tx=... number in the SetBestChain debug.log lines)
-            3.5         // * estimated number of transactions per second after that timestamp
+            0.0046      // * estimated number of transactions per second after that timestamp
         };
     }
 };
@@ -193,6 +200,14 @@ public:
         consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8");
         consensus.BIP65Height = 581885; // 00000000007f6655f22f98e72ed80d8b06dc761d5da09df0fa1dc4be4f861eb6
         consensus.BIP66Height = 330776; // 000000002104c8c45e99a8853285a3b592602a3ccde2b832481da85e9e4ba182
+        
+        consensus.BCDHeight = 1065121;
+        consensus.BCDGenesisBlockReward = 140 * 10000 * COIN;
+        consensus.BCDLastRewardHeight = 1531604;        
+        consensus.BCDBeginPowLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+
+        
+        
         consensus.powLimit = uint256S("00000000ffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 10 * 60;
@@ -215,16 +230,16 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1493596800; // May 1st 2017
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000002830dab7f76dbb7d63");
+        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000001dce6b2bee64227416");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000000002e9e7b00e1f6dc5123a04aad68dd0f0968d8c7aa45f6640795c37b1"); //1135275
+        consensus.defaultAssumeValid = uint256S("0x06902ce0faacb913b54fa5a6b1dbadf7009019fc0234c5632d46babcd3b5b137"); //1066712
 
         pchMessageStart[0] = 0x0b;
-        pchMessageStart[1] = 0x11;
-        pchMessageStart[2] = 0x09;
-        pchMessageStart[3] = 0x07;
-        nDefaultPort = 18333;
+        pchMessageStart[1] = 0xcd;
+        pchMessageStart[2] = 0x20;
+        pchMessageStart[3] = 0x18;
+        nDefaultPort = 17117;
         nPruneAfterHeight = 1000;
 
         genesis = CreateGenesisBlock(1296688602, 414098458, 0x1d00ffff, 1, 50 * COIN * COIN_SCALE);
@@ -235,11 +250,9 @@ public:
         vFixedSeeds.clear();
         vSeeds.clear();
         // nodes with support for servicebits filtering should be at the top
-        vSeeds.emplace_back("testnet-seed.bitcoin.jonasschnelli.ch");
-        vSeeds.emplace_back("seed.tbtc.petertodd.org");
-        vSeeds.emplace_back("seed.testnet.bitcoin.sprovoost.nl");
-        vSeeds.emplace_back("testnet-seed.bluematt.me"); // Just a static list of stable node(s), only supports x9
-
+        vSeeds.emplace_back("test1.dns.btcd.io");
+        
+        
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,111);
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,196);
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,239);
@@ -258,14 +271,15 @@ public:
         checkpointData = {
             {
                 {546, uint256S("000000002a936ca763904c3c35fce2f3556c559c0214345d31b1bcebf76acb70")},
+                {1065121,uint256S("0x890f1ad9a143da58806298072ad6d66e7a6086c7e6629265c9efb649630baa1c")},
             }
         };
 
         chainTxData = ChainTxData{
-            // Data as of block 000000000000033cfa3c975eb83ecf2bb4aaedf68e6d279f6ed2b427c64caff9 (height 1260526)
-            1516903490,
-            17082348,
-            0.09
+            // Data as of block 8970a86a6f3afe2c9da30f940aaab6626ce842f9979ae4f7120d8866c0c3b303 (height 1067712)
+            1532689441,
+            13063720,
+            0.0047
         };
 
     }
@@ -284,6 +298,13 @@ public:
         consensus.BIP34Hash = uint256();
         consensus.BIP65Height = 1351; // BIP65 activated on regtest (Used in rpc activation tests)
         consensus.BIP66Height = 1251; // BIP66 activated on regtest (Used in rpc activation tests)
+        
+        consensus.BCDHeight = 1;
+        consensus.BCDGenesisBlockReward = 500 * COIN;
+        consensus.BCDLastRewardHeight = 1531604;
+        consensus.BCDBeginPowLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        
+        
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 10 * 60;
