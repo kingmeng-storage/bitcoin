@@ -294,7 +294,7 @@ public:
         return *phashBlock;
     }
 
-    uint256 GetBlockPoWHash() const
+    uint256 GetBlockPoWHash(bool isBCDBlock = false) const
     {
     	if ((nVersion & 0x40000000UL) && isBCDBlock)
     		return GetBlockHeader().GetPoWHash();
