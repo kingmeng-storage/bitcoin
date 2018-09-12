@@ -46,7 +46,7 @@ bool IsBlockLike(const std::string &strCommand) {
            strCommand == NetMsgType::BLOCKTXN;
 }
 } // namespace NetMsgType
-
+const unsigned int MAX_PROTOCOL_MESSAGE_LENGTH = 1 * 1024 * 1024;
 /** All known message types. Keep this in the same order as the list of
  * messages above and in protocol.h.
  */

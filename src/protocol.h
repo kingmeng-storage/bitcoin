@@ -17,7 +17,6 @@
 
 #include <stdint.h>
 #include <string>
-
 /** Message header.
  * (4) message start.
  * (12) command.

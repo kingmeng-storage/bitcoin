@@ -771,8 +771,8 @@ bool CNode::ReceiveMsgBytes(const char *pch, unsigned int nBytes, bool& complete
             return false;
 
         if (IsOversizedMessage(msg)) {
-            LogPrint("net", "Oversized message from peer=%i, disconnecting\n", GetId());
-            return false;
+             LogPrint(BCLog::NET, "Oversized message from peer=%i, disconnecting\n", GetId());
+           return false;
         }
 
         pch += handled;
